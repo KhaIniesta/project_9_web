@@ -39,34 +39,6 @@ public class HeaderController {
 	@Autowired
 	IMilkTeaService milkTeaService;
 
-//	@GetMapping("/search")
-//	public String showCategory(Model model, @RequestParam("page") Optional<Integer> page) {
-//		int count = (int) milkTeaService.count();
-//		int currentPage = page.orElse(1);
-//		int pageSize = 8;
-//
-//		Pageable pageable = PageRequest.of(currentPage - 1, pageSize, Sort.by("id_milk_tea"));
-//		Page<MilkTeaEntity> resultpaPage = null;
-//		resultpaPage = milkTeaService.findAll(pageable);
-//
-//		int totalPages = resultpaPage.getTotalPages();
-//		if (totalPages > 0) {
-//			int start = Math.max(1, currentPage - 2);
-//			int end = Math.min(currentPage + 2, totalPages);
-//			if (totalPages > count) {
-//				if (end == totalPages)
-//					start = end - count;
-//				else if (start == 1)
-//					end = start + count;
-//			}
-//			List<Integer> pageNumbers = IntStream.rangeClosed(start, end).boxed().collect(Collectors.toList());
-//			model.addAttribute("pageNumbers", pageNumbers);
-//
-//		}
-//		model.addAttribute("milkTeas", resultpaPage);
-//		return "user/search";
-//	}
-
 	@RequestMapping("search/content={name}")
 	public String getMilkTeaByNameContaining(@PathVariable("name") String encodedName, Model model,
 			@RequestParam("page") Optional<Integer> page) {
